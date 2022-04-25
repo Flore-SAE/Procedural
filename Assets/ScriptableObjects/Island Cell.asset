@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c95fd0e524f58a22a32edf5080eba, type: 3}
   m_Name: Island Cell
   m_EditorClassIdentifier: 
-  rate: 0
-  shouldResize: 0
-  prefab: {fileID: 0}
+  rate: 0.333333
+  shouldResize: 1
+  prefab: {fileID: 3805882302272601424, guid: feb24c4cf2cf6c14ab0a9e2af79a78bf, type: 3}

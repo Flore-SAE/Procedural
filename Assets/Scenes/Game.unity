@@ -134,8 +134,6 @@ GameObject:
   - component: {fileID: 195268895}
   - component: {fileID: 195268894}
   - component: {fileID: 195268893}
-  - component: {fileID: 195268897}
-  - component: {fileID: 195268896}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -156,6 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: {x: 5, y: 15}
+  builders:
+  - {fileID: 11400000, guid: 8a7862c1837570841af940cfbfb5b58c, type: 2}
+  - {fileID: 11400000, guid: 215431d8d608d604baf02764d9118a8b, type: 2}
 --- !u!156049354 &195268894
 Grid:
   m_ObjectHideFlags: 0
@@ -182,46 +183,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &195268896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195268892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c2b3af4e184634bbd6c541ff8a723f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 0
-  rate: 1
-  shouldResize: 1
-  baseCells:
-  - prefab: {fileID: 6038375366910876887, guid: 061fcfac1d24a7b46a071efc7752fd34, type: 3}
-    chanceToAppear: 0.111
-  - prefab: {fileID: 6038375366910876887, guid: 7adef6be4f6afd44ba3421dd4c7b9a33, type: 3}
-    chanceToAppear: 0.52362096
-  - prefab: {fileID: 6038375366910876887, guid: f05bc920c1fb28441a645f853e656df9, type: 3}
-    chanceToAppear: 0.16770895
-  - prefab: {fileID: 6038375366910876887, guid: 167a6c28332ce784d9520b87831b44b6, type: 3}
-    chanceToAppear: 0
---- !u!114 &195268897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195268892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed20bb762764ff695de8ea293ce3103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  rate: 0.18
-  shouldResize: 1
-  prefab: {fileID: 3805882302272601424, guid: feb24c4cf2cf6c14ab0a9e2af79a78bf, type: 3}
 --- !u!1 &359332151
 GameObject:
   m_ObjectHideFlags: 0

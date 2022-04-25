@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Grid))]

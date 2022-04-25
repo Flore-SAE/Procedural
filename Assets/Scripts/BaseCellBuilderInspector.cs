@@ -77,20 +77,15 @@ public partial class BaseCellBuilder
         {
             var chanceToDivide = GetRemovedCellChance();
             chanceToDivide /= baseCells.Length;
-            for (var i = 0; i < baseCells.Length; i++)
-            {
-                baseCells[i].chanceToAppear += chanceToDivide;
-            }
+            for (var i = 0; i < baseCells.Length; i++) baseCells[i].chanceToAppear += chanceToDivide;
         }
     }
 
     private float GetRemovedCellChance()
     {
         foreach (var cell in baseCellsCopy)
-        {
             if (!baseCells.Contains(cell))
                 return cell.chanceToAppear;
-        }
 
         return 0;
     }

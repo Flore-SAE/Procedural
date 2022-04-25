@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     public Vector2Int gridSize;
+    public LevelBuilderSO[] builders;
 
-    private LevelBuilder[] builders;
     private Grid grid;
 
     private void OnValidate()
@@ -17,8 +17,6 @@ public class LevelGenerator : MonoBehaviour
     private void Awake()
     {
         grid = GetComponent<Grid>();
-        builders = GetComponents<LevelBuilder>();
-        builders = builders.OrderBy(builder => builder.order).ToArray();
     }
 
     private void Start()
@@ -28,12 +26,12 @@ public class LevelGenerator : MonoBehaviour
 
     private void CreateLevel()
     {
+        var cellSize = grid.cellSize;
+        var cellGap = grid.cellGap;
         for (var i = 0; i < gridSize.x; i++)
         {
             for (var j = 0; j < gridSize.y; j++)
             {
-                var cellSize = grid.cellSize;
-                var cellGap = grid.cellGap;
                 var indexedPosition = new Vector3(i * cellSize.x + cellGap.x * i, j * cellSize.y + cellGap.y * j, 0);
                 var gridPosition = grid.WorldToCell(indexedPosition);
                 var spawnPosition = grid.CellToWorld(gridPosition);
@@ -42,11 +40,11 @@ public class LevelGenerator : MonoBehaviour
 
                 foreach (var builder in builders)
                 {
-                    var cell = builder.BuildCell(spawnPosition);
-                    if (cell is null)
-                        continue;
-                    if (builder.shouldResize)
-                        cell.transform.localScale = grid.cellSize;
+                    if (builder.TryBuildCell(out var cell, spawnPosition, transform))
+                    {
+                        if (builder.shouldResize)
+                            cell.transform.localScale = grid.cellSize;
+                    }
                 }
             }
         }

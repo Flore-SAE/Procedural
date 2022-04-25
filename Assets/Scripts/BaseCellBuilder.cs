@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Base Cells", menuName = "Builders/Base", order = 0)]
-public partial class BaseCellBuilder : LevelBuilderSO
+public partial class BaseCellBuilder : LevelBuilder
 {
     public Cell[] baseCells = { };
 

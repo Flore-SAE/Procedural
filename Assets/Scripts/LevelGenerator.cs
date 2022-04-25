@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     public Vector2Int gridSize;
-    public LevelBuilderSO[] builders;
+    public LevelBuilder[] builders;
 
     private Grid grid;
 

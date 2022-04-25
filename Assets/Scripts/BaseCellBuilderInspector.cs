@@ -29,19 +29,21 @@ public partial class BaseCellBuilder
 
         var oldTotalLeft = 1 - baseCellsCopy[modifiedIndex].chanceToAppear;
         var newTotalLeft = 1 - baseCells[modifiedIndex].chanceToAppear;
+        var modifiedCellWasFullRate = oldTotalLeft == 0;
 
         for (var i = 0; i < baseCells.Length; i++)
         {
             if (i == modifiedIndex) continue;
 
-            if (oldTotalLeft != 0 || baseCellsCopy[i].chanceToAppear != 0)
+            var currentCellWasDisabled = baseCellsCopy[i].chanceToAppear == 0;
+            if (modifiedCellWasFullRate && currentCellWasDisabled)
             {
-                var percent = baseCellsCopy[i].chanceToAppear / oldTotalLeft;
-                baseCells[i].chanceToAppear = newTotalLeft * percent;
+                baseCells[i].chanceToAppear = newTotalLeft / (baseCells.Length - 1);
             }
             else
             {
-                baseCells[i].chanceToAppear = newTotalLeft / (baseCells.Length - 1);
+                var occupiedPercentLastTime = baseCellsCopy[i].chanceToAppear / oldTotalLeft;
+                baseCells[i].chanceToAppear = newTotalLeft * occupiedPercentLastTime;
             }
 
             baseCells[i].chanceToAppear = Mathf.Clamp(baseCells[i].chanceToAppear, 0, 1);

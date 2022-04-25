@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Island Cell", menuName = "Builders/Island", order = 0)]
-public class IslandBuilder : LevelBuilderSO
+public class IslandBuilder : LevelBuilder
 {
     public GameObject prefab;
 

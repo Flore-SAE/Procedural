@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class LevelBuilderSO : ScriptableObject
+public abstract class LevelBuilder : ScriptableObject
 {
     [Range(0, 1)] public float rate;
     public bool shouldResize;

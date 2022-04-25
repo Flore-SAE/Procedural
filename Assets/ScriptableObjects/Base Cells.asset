@@ -16,10 +16,10 @@ MonoBehaviour:
   shouldResize: 1
   baseCells:
   - prefab: {fileID: 6038375366910876887, guid: 061fcfac1d24a7b46a071efc7752fd34, type: 3}
-    chanceToAppear: 0.36805296
+    chanceToAppear: 0.614
   - prefab: {fileID: 6038375366910876887, guid: 7adef6be4f6afd44ba3421dd4c7b9a33, type: 3}
-    chanceToAppear: 0.1334416
+    chanceToAppear: 0.24189515
   - prefab: {fileID: 6038375366910876887, guid: f05bc920c1fb28441a645f853e656df9, type: 3}
-    chanceToAppear: 0.30850542
+    chanceToAppear: 0.10905254
   - prefab: {fileID: 6038375366910876887, guid: 167a6c28332ce784d9520b87831b44b6, type: 3}
-    chanceToAppear: 0.19
+    chanceToAppear: 0.035052236

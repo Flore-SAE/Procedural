@@ -25,7 +25,8 @@ public partial class BaseCellBuilder
 
     private void WeightValues()
     {
-        if (!HasCellInspectorBeenModified(out var modifiedIndex)) return;
+        if (!CellInspectorModified(out var modifiedIndex))
+            return;
 
         var oldTotalLeft = 1 - baseCellsCopy[modifiedIndex].chanceToAppear;
         var newTotalLeft = 1 - baseCells[modifiedIndex].chanceToAppear;
@@ -33,7 +34,8 @@ public partial class BaseCellBuilder
 
         for (var i = 0; i < baseCells.Length; i++)
         {
-            if (i == modifiedIndex) continue;
+            if (i == modifiedIndex)
+                continue;
 
             var currentCellWasDisabled = baseCellsCopy[i].chanceToAppear == 0;
             if (modifiedCellWasFullRate && currentCellWasDisabled)
@@ -50,14 +52,15 @@ public partial class BaseCellBuilder
         }
     }
 
-    private bool HasCellInspectorBeenModified(out int modifiedIndex)
+    private bool CellInspectorModified(out int modifiedIndex)
     {
         modifiedIndex = -1;
 
         for (var i = 0; i < baseCells.Length; i++)
         {
             var chancesDiff = baseCells[i].chanceToAppear - baseCellsCopy[i].chanceToAppear;
-            if (Math.Abs(chancesDiff) <= float.Epsilon) continue;
+            if (Math.Abs(chancesDiff) <= float.Epsilon)
+                continue;
             modifiedIndex = i;
             return true;
         }
@@ -71,23 +74,27 @@ public partial class BaseCellBuilder
 
         if (cellAdded)
         {
-            baseCells[baseCells.Length - 1].chanceToAppear = 0;
+            for (var i = baseCellsCopy.Length; i < baseCells.Length; i++)
+            {
+                baseCells[i].chanceToAppear = 0;
+                baseCells[i].prefab = null;
+            }
         }
         else
         {
-            var chanceToDivide = GetRemovedCellChance();
-            chanceToDivide /= baseCells.Length;
-            for (var i = 0; i < baseCells.Length; i++) baseCells[i].chanceToAppear += chanceToDivide;
+            var chancesToDivide = GetRemovedCellChances();
+            chancesToDivide /= baseCells.Length;
+            for (var i = 0; i < baseCells.Length; i++)
+                baseCells[i].chanceToAppear += chancesToDivide;
         }
     }
 
-    private float GetRemovedCellChance()
+    private float GetRemovedCellChances()
     {
-        foreach (var cell in baseCellsCopy)
-            if (!baseCells.Contains(cell))
-                return cell.chanceToAppear;
-
-        return 0;
+        return baseCellsCopy
+            .Where(cell => !baseCells.Contains(cell))
+            .Select(cell => cell.chanceToAppear)
+            .Sum();
     }
 }
 #endif

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
+// ReSharper disable PossibleMultipleEnumeration
 
-[Serializable]
+[System.Serializable]
 public struct Cell
 {
     public GameObject prefab;
@@ -12,10 +11,9 @@ public struct Cell
 
     public static Cell GetRandomCell(IEnumerable<Cell> cells)
     {
-        var cellArray = cells.ToArray();
         var value = Random.value;
         var high = 0f;
-        foreach (var cell in cellArray)
+        foreach (var cell in cells)
         {
             var low = high;
             high += cell.chanceToAppear;
@@ -23,6 +21,6 @@ public struct Cell
                 return cell;
         }
 
-        return cellArray[0];
+        return cells.First();
     }
 }

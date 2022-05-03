@@ -7,13 +7,7 @@ public class IslandBuilder : LevelBuilder
 
     protected override bool BuildCell(out GameObject cell, Vector3 position, Transform parent)
     {
-        if (Random.value < rate)
-        {
-            cell = Instantiate(prefab, position, parent.rotation, parent);
-            return true;
-        }
-
-        cell = null;
-        return false;
+        cell = Instantiate(prefab, position, parent.rotation, parent);
+        return true;
     }
 }

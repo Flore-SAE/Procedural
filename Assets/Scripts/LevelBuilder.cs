@@ -2,9 +2,10 @@
 
 public abstract class LevelBuilder : ScriptableObject
 {
+    [Header("Common properties")]
     [Range(0, 1)] public float rate;
     public bool shouldResize;
-
+    
     public bool TryBuildCell(out GameObject cell, Vector3 position, Transform parent)
     {
         if (Random.value < rate)

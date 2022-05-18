@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7eb2f5c3c2479682266e581416c2c0, type: 3}
+  m_Name: Perlin Tile Builder
+  m_EditorClassIdentifier: 
+  replace: 1
+  tile: {fileID: 11400000, guid: 1552469a560bc3045b73c2c5c35bdda1, type: 2}
+  islandSize: 25
+  threshold: 0.5

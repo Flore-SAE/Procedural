@@ -1,8 +1,8 @@
-﻿using UnityEngine.Tilemaps;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [Serializable]
 public class TilemapLayer
@@ -29,6 +29,7 @@ public class TilemapLayer
                     tiles[position] = newTile;
             }
         }
+
         tilemap.SetTiles(tiles.Keys.ToArray(), tiles.Values.ToArray());
     }
 }

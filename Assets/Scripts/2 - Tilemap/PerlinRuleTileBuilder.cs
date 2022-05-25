@@ -2,16 +2,20 @@
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(menuName = "Builders/Perlin Tile", fileName = "Perlin Tile Builder")]
-public class PerlinRuleTileBuilder : TilemapBuilder 
+public class PerlinRuleTileBuilder : TilemapBuilder
 {
-    [Header("Perlin properties")]
-    public float islandSize;
+    [Header("Perlin properties")] 
+    public TileBase ruleTile;
+    public float zoom;
     [Range(0, 1)] public float threshold;
 
-    protected override bool ShouldPlaceTile(Vector3Int position, Tilemap tilemap)
+    protected override bool ShouldPlaceTile(Vector3Int position, Tilemap tilemap, out TileBase tile)
     {
         if (tilemap.orientation == Tilemap.Orientation.Custom)
+        {
+            tile = null;
             return false;
+        }
         
         var realPos = tilemap.CellToWorld(position);
         var tiledPosition = tilemap.orientation switch
@@ -25,8 +29,10 @@ public class PerlinRuleTileBuilder : TilemapBuilder
            Tilemap.Orientation.Custom => new Vector2(float.MinValue, float.MinValue),
            _ => new Vector2(float.MinValue, float.MinValue)
         };
-        var zoomedPosX = tiledPosition.x / islandSize;
-        var zoomedPosY = tiledPosition.y / islandSize;
-        return Mathf.PerlinNoise(zoomedPosX, zoomedPosY) > threshold;
+        var zoomedPosX = tiledPosition.x / zoom;
+        var zoomedPosY = tiledPosition.y / zoom;
+        var perlin = Mathf.PerlinNoise(zoomedPosX, zoomedPosY) > threshold;
+        tile = perlin ? ruleTile : null;
+        return perlin;
     }
 }

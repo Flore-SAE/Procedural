@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Perlin Tile Builder
   m_EditorClassIdentifier: 
   replace: 1
-  tile: {fileID: 11400000, guid: 1552469a560bc3045b73c2c5c35bdda1, type: 2}
-  islandSize: 25
+  ruleTile: {fileID: 11400000, guid: 1552469a560bc3045b73c2c5c35bdda1, type: 2}
+  zoom: 25
   threshold: 0.5

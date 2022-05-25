@@ -3,6 +3,7 @@
 [CreateAssetMenu(fileName = "Island Cell", menuName = "Builders/Island", order = 0)]
 public class IslandBuilder : LevelBuilder
 {
+    [Header("Island properties")]
     public GameObject prefab;
 
     protected override bool BuildCell(out GameObject cell, Vector3 position, Transform parent)

@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(menuName = "Builders/Perlin Tile", fileName = "Perlin Tile Builder")]
 public class PerlinRuleTileBuilder : TilemapBuilder 
 {
+    [Header("Perlin properties")]
     public float islandSize;
     [Range(0, 1)] public float threshold;
 

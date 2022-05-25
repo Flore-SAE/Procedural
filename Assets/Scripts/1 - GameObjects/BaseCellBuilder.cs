@@ -3,6 +3,7 @@
 [CreateAssetMenu(fileName = "Base Cells", menuName = "Builders/Base", order = 0)]
 public partial class BaseCellBuilder : LevelBuilder
 {
+    [Header("Base cells properties")]
     public Cell[] baseCells = { };
 
     protected override bool BuildCell(out GameObject cell, Vector3 position, Transform parent)

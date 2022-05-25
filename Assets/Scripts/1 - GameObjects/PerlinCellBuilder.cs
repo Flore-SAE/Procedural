@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Builders/Perlin", fileName = "Perlin Builder")]
 public class PerlinCellBuilder : LevelBuilder
 {
+    [Header("Perlin properties")]
     public GameObject prefab;
     public float zoom;
     [Range(0, 1)] public float threshold;

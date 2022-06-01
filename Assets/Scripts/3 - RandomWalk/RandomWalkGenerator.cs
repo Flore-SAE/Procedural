@@ -44,7 +44,7 @@ public class RandomWalkGenerator : MonoBehaviour
         var startNode = nodes[0];
         if (startNode.directions.Count <= 0)
             return;
-        var position = Directions.GetRandomDirection(startNode.directions);
+        var position = IntDirections.GetRandomDirection(startNode.directions);
         var lastPosition = Vector2Int.zero;
         var lastDirection = position;
         var color = Random.ColorHSV(0, 1, 0, 1, 1, 1, 1, 1);
@@ -57,7 +57,7 @@ public class RandomWalkGenerator : MonoBehaviour
                 lastNode.directions.Remove(lastDirection);
                 if (lastNode.directions.Count == 0)
                     break;
-                var newDirection = Directions.GetRandomDirection(lastNode.directions);
+                var newDirection = IntDirections.GetRandomDirection(lastNode.directions);
                 position = lastPosition + newDirection;
                 lastDirection = newDirection;
                 i--;
@@ -66,15 +66,15 @@ public class RandomWalkGenerator : MonoBehaviour
             {
                 var newNode = new Node(position, color);
                 nodes.Add(newNode);
-                var newDirection = Directions.GetRandomDirection();
+                var newDirection = IntDirections.GetRandomDirection();
                 lastPosition = position;
                 lastDirection = newDirection;
                 position += newDirection;
             }
         }
     }
-    
-    private Node GetNode(List<Node> nodes, Vector2Int position)
+
+    private Node GetNode(IEnumerable<Node> nodes, Vector2Int position)
     {
         return nodes.FirstOrDefault(node => node.position == position);
     }

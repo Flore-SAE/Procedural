@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1892963121437482978, guid: f7486fa8f7d27694ea447f02c6aec728, type: 3}
-  walkerCount: 6
+  walkerCount: 4
   stepPerWalker: 15
   selfAvoid: 1
 --- !u!156049354 &136804239

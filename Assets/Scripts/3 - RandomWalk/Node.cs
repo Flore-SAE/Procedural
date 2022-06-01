@@ -9,7 +9,7 @@ public class Node
 
     public Node(Vector2Int newPosition, Color newColor)
     {
-        directions = new List<Vector2Int>(Directions.all);
+        directions = new List<Vector2Int>(IntDirections.all);
         position = newPosition;
         color = newColor;
     }

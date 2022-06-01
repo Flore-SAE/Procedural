@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public static class Directions
+public static class IntDirections
 {
     public static List<Vector2Int> all = new List<Vector2Int>
     {
